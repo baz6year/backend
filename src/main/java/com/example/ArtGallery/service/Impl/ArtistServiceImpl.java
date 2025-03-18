@@ -27,16 +27,16 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
-    public Artist updateArtist(ArtistRequest artistRequest) {
+    public Artist updateArtist(ArtistRequest artistRequest, Long id) {
         Artist artist = artistRepository.findById(id).orElse(null);
-        artist.setId(artistRequest.getId());
         artist.setName(artistRequest.getName());
-        return ArtistRepository.save(artist);
+        return artistRepository.save(artist);
     }
 
     @Override
-    public void deleteArtist(int name) {
-        artistRepository.deleteByName(name);
+    public void deleteArtist(Long id) {
+
     }
+
 
 }

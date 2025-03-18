@@ -1,12 +1,16 @@
 package com.example.ArtGallery.service.Impl;
 
 import com.example.ArtGallery.dto.ArtPiecesRequest;
+import com.example.ArtGallery.dto.ArtPiecesResponse;
 import com.example.ArtGallery.mapper.ArtPiecesMapper;
 import com.example.ArtGallery.model.ArtPieces;
 import com.example.ArtGallery.repository.ArtPiecesRepository;
 import com.example.ArtGallery.service.ArtPiecesService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -28,7 +32,7 @@ public class ArtPiecesServiceImpl implements ArtPiecesService {
     public ArtPieces updateArtPiece(Long id, ArtPiecesRequest request) {
         ArtPieces artPieces = artPiecesRepository.findById(id).orElse(null);
         artPieces.setTitle(request.getTitle());
-        artPieces.setArtist(request.getArtist());
+        artPieces.setArtistName(request.getArtistName());
         artPieces.setType(request.getType());
         artPieces.setYear(request.getYear());
         return artPiecesRepository.save(artPieces);
@@ -38,4 +42,13 @@ public class ArtPiecesServiceImpl implements ArtPiecesService {
     public void deleteArtPiece(Long id) {
         artPiecesRepository.deleteArtPiecesById(id);
     }
+
+    public List<ArtPiecesResponse> getArtPiecesByArtist(Long artistId) {
+        List<ArtPieces> artPieces = artPiecesRepository.findByArtistId(artistId);
+        return artPieces.stream()
+                .map(artPiecesMapper::toArtPiecesResponse) // Convert each entity to DTO
+                .collect(Collectors.toList());
+    }
+
+
 }

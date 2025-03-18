@@ -6,5 +6,5 @@ import com.example.ArtGallery.model.ArtPieces;
 
 public interface ArtPiecesMapper {
     ArtPieces toArtPiece(ArtPiecesRequest request);
-    ArtPiecesResponse toResponse(ArtPieces artPieces);
+    ArtPiecesResponse toArtPiecesResponse(ArtPieces artPieces);
 }

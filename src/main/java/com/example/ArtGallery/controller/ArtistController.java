@@ -17,15 +17,15 @@ public class ArtistController {
         return artistService.addArtist(artistRequest);
     }
     @GetMapping("/get/{it}")
-    public Artist getArtist(int id){
+    public Artist getArtist(Long id){
         return artistService.getArtist(id);
     }
-    @PutMapping("/update")
-    public Artist updateArtist(ArtistRequest artistRequest){
-        return artistService.updateArtist(artistRequest);
+    @PutMapping("/update/{id}")
+    public Artist updateArtist(ArtistRequest artistRequest, @PathVariable Long id){
+        return artistService.updateArtist(artistRequest, id);
     }
     @DeleteMapping("/delete/{id}")
-    public void deleteArtist(int id){
+    public void deleteArtist(@PathVariable Long id){
         artistService.deleteArtist(id);
     }
 

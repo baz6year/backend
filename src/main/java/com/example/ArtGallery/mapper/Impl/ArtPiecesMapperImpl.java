@@ -12,18 +12,18 @@ public class ArtPiecesMapperImpl implements ArtPiecesMapper {
     public ArtPieces toArtPiece(ArtPiecesRequest request) {
         ArtPieces artPieces = new ArtPieces();
         artPieces.setTitle(request.getTitle());
-        artPieces.setArtist(request.getArtist());
+        artPieces.setArtistName(request.getArtistName());
         artPieces.setYear(request.getYear());
         artPieces.setType(request.getType());
         return artPieces;
     }
 
     @Override
-    public ArtPiecesResponse toResponse(ArtPieces artPieces) {
+    public ArtPiecesResponse toArtPiecesResponse(ArtPieces artPieces) {
         ArtPiecesResponse artPiecesResponse = new ArtPiecesResponse();
         artPiecesResponse.setId(artPieces.getId());
         artPiecesResponse.setTitle(artPieces.getTitle());
-        artPiecesResponse.setArtist(artPieces.getArtist());
+        artPiecesResponse.setArtistName(artPieces.getArtistName());
         artPiecesResponse.setYear(artPieces.getYear());
         artPiecesResponse.setType(artPieces.getType());
         return artPiecesResponse;
