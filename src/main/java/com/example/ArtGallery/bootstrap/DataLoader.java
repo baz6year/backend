@@ -1,4 +1,4 @@
-package com.example.ArtGallery;
+package com.example.ArtGallery.bootstrap;
 
 import com.example.ArtGallery.model.ArtPieces;
 import com.example.ArtGallery.model.Artist;

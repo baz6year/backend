@@ -11,7 +11,7 @@ import java.util.List;
 public class Artist {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String name;
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     private List<ArtPieces> artPieces;

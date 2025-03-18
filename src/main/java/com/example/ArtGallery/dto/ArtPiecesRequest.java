@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ArtPiecesRequest {
     private String title;
-    private String artist;
+    private String artistName;
     private String type;
     private int year;
 }

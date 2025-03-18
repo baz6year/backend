@@ -13,7 +13,7 @@ public class ArtPieces {
 
     @Column(unique = true, nullable = false)
     private String title;
-    private String artist;
+    private String artistName;
     private int year;
     private String type;
 

@@ -6,7 +6,7 @@ import lombok.Data;
 public class ArtPiecesResponse {
     private Long id;
     private String title;
-    private String artist;
+    private String artistName;
     private String type;
     private int year;
 }
