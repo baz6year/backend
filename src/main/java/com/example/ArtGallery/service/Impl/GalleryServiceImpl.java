@@ -1,6 +1,8 @@
 package com.example.ArtGallery.service.Impl;
 
+import com.example.ArtGallery.mapper.GalleryMapper;
 import com.example.ArtGallery.model.Gallery;
+import com.example.ArtGallery.repository.GalleryRepository;
 import com.example.ArtGallery.service.GalleryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,13 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class GalleryServiceImpl implements GalleryService {
-    @Override
-    public Gallery getGalleryName(String name) {
-        return null;
-    }
+    private final GalleryRepository galleryRepository;
+    private final GalleryMapper galleryMapper;
+
 
     @Override
-    public Gallery getGalleryDescription(String description) {
-        return null;
+    public Gallery getGallery(Long id) {
+        return galleryRepository.findById(id).orElse(null);
     }
 }
