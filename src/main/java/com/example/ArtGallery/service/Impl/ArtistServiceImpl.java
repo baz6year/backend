@@ -22,18 +22,16 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
-    public Artist getArtist(int id) {
+    public Artist getArtist(Long id) {
         return artistRepository.findById(id).orElse(null);
     }
 
     @Override
     public Artist updateArtist(ArtistRequest artistRequest) {
         Artist artist = artistRepository.findById(id).orElse(null);
-        artist.setId(request.getTitle());
-        artist.setArtist(request.getArtist());
-        artist.setType(request.getType());
-        artist.setYear(request.getYear());
-        return artPiecesRepository.save(artist);
+        artist.setId(artistRequest.getId());
+        artist.setName(artistRequest.getName());
+        return ArtistRepository.save(artist);
     }
 
     @Override

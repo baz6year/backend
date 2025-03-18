@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ArtistResponse {
-    private int id;
+    private Long id;
     private String name;
 }
