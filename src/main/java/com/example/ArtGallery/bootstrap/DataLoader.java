@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 @Component
-@Profile("dev")  // This ensures it runs only in the 'dev' environment
+@Profile("dev")
 @RequiredArgsConstructor
 @Slf4j
 public class DataLoader {
