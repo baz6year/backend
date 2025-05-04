@@ -17,11 +17,18 @@ public class ArtPieces {
     private int year;
     private String type;
 
-    @ManyToOne @JoinColumn(name = "artist_id")
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
     private Artist artist;
 
-    @ManyToOne @JoinColumn(name = "gallery_id")
+    @ManyToOne
+    @JoinColumn(name = "gallery_id")
     private Gallery gallery;
+
+    @ManyToOne
+    @JoinColumn(name = "buyer_id")
+    private User buyer;
+
 
 }
 
