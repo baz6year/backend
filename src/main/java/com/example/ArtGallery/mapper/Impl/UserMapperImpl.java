@@ -10,23 +10,38 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class UserMapperImpl implements UserMapper {
     @Override
-    public User toUser(UserRequest userRequest) {
+    public User toUser(UserRequest request) {
         User user = new User();
-        user.setUsername(userRequest.getUsername());
-        user.setPassword(userRequest.getPassword());
-        user.setEmail(userRequest.getEmail());
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(request.getPassword());
+        user.setAge(request.getAge());
         return user;
     }
 
     @Override
-    public UserResponse toUserResponse(User user) {
+    public UserResponse toResponse(User user) {
         UserResponse userResponse = new UserResponse();
-        userResponse.setUsername(user.getUsername());
-        userResponse.setPassword(user.getPassword());
+        userResponse.setName(user.getName());
         userResponse.setEmail(user.getEmail());
+        userResponse.setAge(user.getAge());
         return userResponse;
+    }
+
+    @Override
+    public List<UserResponse> toResponses(List<User> users) {
+        List<UserResponse> userResponses = new ArrayList<>();
+
+        for (User user : users) {
+            userResponses.add(toResponse(user));
+        }
+
+        return userResponses;
     }
 }
